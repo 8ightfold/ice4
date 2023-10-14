@@ -21,6 +21,36 @@ void uci() {
         "id author MinusKelvin\n"
         "option name Hash type spin default 8 min 1 max 99999\n"
         "option name Threads type spin default 1 min 1 max 999\n"
+        "option name aIIR_DEPTH type spin default 5 min -10000 max 10000\n"
+        "option name bRFP_MAX_DEPTH type spin default 4 min -10000 max 10000\n"
+        "option name cRFP_MARGIN type spin default 75 min -10000 max 10000\n"
+        "option name dRAZOR_MARGIN type spin default 150 min -10000 max 10000\n"
+        "option name eNMP_MIN_DEPTH type spin default 1 min -10000 max 10000\n"
+        "option name fNMP_MARGIN_DIVISOR type spin default 109 min -10000 max 10000\n"
+        "option name gNMP_DEPTH_FACTOR type spin default 375 min -10000 max 10000\n"
+        "option name hNMP_REDUCTION type spin default 2 min -10000 max 10000\n"
+        "option name iIID_MIN_DEPTH type spin default 3 min -10000 max 10000\n"
+        "option name jIID_REDUCTION type spin default 2 min -10000 max 10000\n"
+        "option name kLMP_1 type spin default 7 min -10000 max 10000\n"
+        "option name lLMP_2 type spin default 8 min -10000 max 10000\n"
+        "option name mLMP_3 type spin default 17 min -10000 max 10000\n"
+        "option name nLMP_4 type spin default 39 min -10000 max 10000\n"
+        "option name oDELTA_PROMO type spin default 1350 min -10000 max 10000\n"
+        "option name pDELTA_PAWN type spin default 210 min -10000 max 10000\n"
+        "option name qDELTA_KNIGHT type spin default 390 min -10000 max 10000\n"
+        "option name rDELTA_BISHOP type spin default 440 min -10000 max 10000\n"
+        "option name sDELTA_ROOK type spin default 680 min -10000 max 10000\n"
+        "option name tDELTA_QUEEN type spin default 1350 min -10000 max 10000\n"
+        "option name uLMR_MOVE type spin default 75 min -10000 max 10000\n"
+        "option name vLMR_DEPTH type spin default 100 min -10000 max 10000\n"
+        "option name wLMR_EXTRA type spin default 4 min -10000 max 10000\n"
+        "option name xLMR_HISTORY type spin default 346 min -10000 max 10000\n"
+        "option name yPLAIN_HIST_WEIGHT type spin default 10 min -10000 max 10000\n"
+        "option name zCOUNTER_HIST_WEIGHT type spin default 10 min -10000 max 10000\n"
+        "option name 0FOLLOWUP_HIST_WEIGHT type spin default 10 min -10000 max 10000\n"
+        "option name 1ASPIRATION_BOUND type spin default 10 min -10000 max 10000\n"
+        "option name 2HARD_TIME_LIMIT type spin default 10 min -10000 max 10000\n"
+        "option name 3SOFT_TIME_LIMIT type spin default 10 min -10000 max 10000\n"
 #endif
         "uciok\n"
     );
@@ -39,6 +69,96 @@ void uci() {
                 strtok(0, " \n"); // value
                 value = atoi(strtok(0, " \n"));
                 switch (opt) {
+                    case 'a':
+                        IIR_DEPTH = value;
+                        break;
+                    case 'b':
+                        RFP_MAX_DEPTH = value;
+                        break;
+                    case 'c':
+                        RFP_MARGIN = value;
+                        break;
+                    case 'd':
+                        RAZOR_MARGIN = value;
+                        break;
+                    case 'e':
+                        NMP_MIN_DEPTH = value;
+                        break;
+                    case 'f':
+                        NMP_MARGIN_DIVISOR = value;
+                        break;
+                    case 'g':
+                        NMP_DEPTH_FACTOR = value;
+                        break;
+                    case 'h':
+                        NMP_REDUCTION = value;
+                        break;
+                    case 'i':
+                        IID_MIN_DEPTH = value;
+                        break;
+                    case 'j':
+                        IID_REDUCTION = value;
+                        break;
+                    case 'k':
+                        LMP_1 = value;
+                        break;
+                    case 'l':
+                        LMP_2 = value;
+                        break;
+                    case 'm':
+                        LMP_3 = value;
+                        break;
+                    case 'n':
+                        LMP_4 = value;
+                        break;
+                    case 'o':
+                        DELTA_PROMO = value;
+                        break;
+                    case 'p':
+                        DELTA_PAWN = value;
+                        break;
+                    case 'q':
+                        DELTA_KNIGHT = value;
+                        break;
+                    case 'r':
+                        DELTA_BISHOP = value;
+                        break;
+                    case 's':
+                        DELTA_ROOK = value;
+                        break;
+                    case 't':
+                        DELTA_QUEEN = value;
+                        break;
+                    case 'u':
+                        LMR_MOVE = value;
+                        break;
+                    case 'v':
+                        LMR_DEPTH = value;
+                        break;
+                    case 'w':
+                        LMR_EXTRA = value;
+                        break;
+                    case 'x':
+                        LMR_HISTORY = value;
+                        break;
+                    case 'y':
+                        PLAIN_HIST_WEIGHT = value;
+                        break;
+                    case 'z':
+                        COUNTER_HIST_WEIGHT = value;
+                        break;
+                    case '0':
+                        FOLLOWUP_HIST_WEIGHT = value;
+                        break;
+                    case '1':
+                        ASPIRATION_BOUND = value;
+                        break;
+                    case '2':
+                        HARD_TIME_LIMIT = value;
+                        break;
+                    case '3':
+                        SOFT_TIME_LIMIT = value;
+                        break;
                     case 'H':
                         TT = vector<TtEntry>(value * 65536);
                         break;
